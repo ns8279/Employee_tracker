@@ -1,0 +1,25 @@
+{
+  "name": "employee_tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ns8279/Employee_tracker.git"
+  },
+  "author": "Nirupama Sundararaman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ns8279/Employee_tracker/issues"
+  },
+  "homepage": "https://github.com/ns8279/Employee_tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.1.0",
+    "mysql2": "^2.1.0"
+  }
+}
