@@ -7,7 +7,6 @@ USE employee_trackerDB;
 /*
     CREATE THE TABLES 
     The tables should be created in the same order as below due to the FK constraints
-
 */
 
 CREATE TABLE department (
@@ -18,7 +17,7 @@ CREATE TABLE department (
 CREATE TABLE role (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
-    salary DECIMAL(16,2) NOT NULL,
+    salary DECIMAL(16,0) NOT NULL,
     department_id INTEGER ,
     index department_id(department_id),
     FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE SET NULL
