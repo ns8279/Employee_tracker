@@ -6,7 +6,7 @@ USE employee_trackerDB;
 
 /*
     CREATE THE TABLES 
-    The tables should be created in the same order due to the FK constraints
+    The tables should be created in the same order as below due to the FK constraints
 
 */
 
