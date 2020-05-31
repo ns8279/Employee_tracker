@@ -17,7 +17,7 @@ CREATE TABLE department (
 CREATE TABLE role (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
-    salary DECIMAL(16,0) NOT NULL,
+    salary DECIMAL(16,2) NOT NULL,
     department_id INTEGER ,
     index department_id(department_id),
     FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE SET NULL
@@ -42,5 +42,17 @@ CREATE TABLE employee (
 
 
 
+/* EMPLOYEE QUERY
+SELECT employee.id,
+employee.first_name,
+employee.last_name,
+role.title,
+department.name AS department,
+role.salary,
+(SELECT CONCAT(employee.first_name, employee.last_name)FROM employee where employee.manager_id = employee.id )as Manager
 
+FROM employee
+JOIN role on employee.role_id = role.id 
+JOIN department on department.id = role.department_id;
+*/
 
