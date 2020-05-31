@@ -245,7 +245,7 @@ const addRole = () => {
                     return res.name == department;
                 });
                 let id = departmentIte[0].id;
-                let sql = 'INSERT INTO role (title, salary, department_id) VALUES (? ? ?)';
+                let sql = 'INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)';
                 let params = [answer.title, answer.salary, id];
                 console.log(params);
                 connection.query(sql, params, (err,res) => {
@@ -253,6 +253,8 @@ const addRole = () => {
                     console.log(`You have successfully added this role: ${(params[0]).toUpperCase()}`);
                 });
                 //showAllRoles();
+                start();
+                
             });
         });
     });
