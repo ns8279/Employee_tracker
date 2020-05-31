@@ -93,7 +93,7 @@ const start = () => {
                     updateRole(); //call the function to update the employee role
                     break;
 
-                case "Delete an employee":
+                case "Delete an Employee":
                     deleteEmployee(); //call the function to update the employee role
                     break;
               
@@ -458,6 +458,39 @@ const deleteEmployee = () => {
     connection.query(sql9, (err, res) => {
         var name = [];
         if (err) throw err;
+
+        for (k = 0; k < res.length; k++) {
+            var firstname = res[k].first_name;
+            var lastname = res[k].last_name
+            console.table(firstname + lastname)
+            name.push(firstname + " " + lastname)
+        }
+        inquirer
+        .prompt([
+            {
+                type: "list",
+                name: "employee",
+                message: "Select the employee you would like to delete",
+                choices: name
+            }
+        ])
+        .then(( {employee} )=>{
+            var selectEmp = employee.split(" ");
+            const sql10 = `SELECT id from employee where (first_name = ? and last_name = ?)`;
+            const params10 = [selectEmp[0], selectEmp[1]];
+
+            connection.query(sql10, params10, (err,res) => {
+                if(err) throw err;
+                console.table(res[0].id);
+                const sql11 = `DELETE from employee where id = ?; `;
+                const params11 = [res[0].id];
+                connection.query(sql11, params11, (err,res) => {
+                    console.log(`Employee : ${employee} has been deleted!`);
+                    start();
+                });
+            });
+        });
+        
     });
 }
 
