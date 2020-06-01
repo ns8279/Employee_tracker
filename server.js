@@ -342,7 +342,7 @@ const addEmployee = () => {
                     var managerId;
                     if(manager === 'none'){
                         managerId = null;
-                        const sql2 = `INSERT INTO employee(first_name, last_name, role_id, manager_id) values(?, ?, ?, ?)`;
+                        const sql2 = `INSERT INTO employee(first_name, last_name, role_id, manager_id) values(?, ?, ?, ?);`;
                         const params2 = [firstName, lastName, title, manager];
                         connection.query(sql2, params2, (err,res)=> {
                             if (err) throw err;
@@ -364,7 +364,7 @@ const addEmployee = () => {
                             // console.table(roleId);
                             // console.table(managerId);
 
-                            const sql4 = "Insert into employee(first_name, last_name, role_id, manager_id) values(?, ?, ?, ?)";
+                            const sql4 = `Insert into employee(first_name, last_name, role_id, manager_id) values(?, ?, ?, ?);`;
                             const params4 = [firstName, lastName, roleId, managerId];
                             connection.query(sql4, params4, function (err, res) {
                                 if (err) throw err;
